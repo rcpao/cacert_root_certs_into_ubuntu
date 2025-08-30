@@ -1,8 +1,13 @@
 #!/bin/bash -vx
 
-sudo apt-get install -y ca-certificates
+# sudo apt-get install -y ca-certificates
+
+[ -f root_X0F.crt ] && rm root_X0F.crt
 wget --no-check-certificate https://www.cacert.org/certs/root_X0F.crt
+
+[ -f CAcert_Class3Root_x14E228.crt ] && rm CAcert_Class3Root_x14E228.crt 
 wget --no-check-certificate https://www.cacert.org/certs/CAcert_Class3Root_x14E228.crt
+
 sudo cp *.crt /usr/local/share/ca-certificates/
 sudo update-ca-certificates
 
