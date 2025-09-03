@@ -1,5 +1,11 @@
 #!/bin/bash -vx
 
+
+# Test cases:
+# wget https://www.cacert.org/certs/root_X0F.crt
+curl https://www.cacert.org/certs/root_X0F.crt
+
+
 # sudo apt-get install -y ca-certificates
 
 [ -f root_X0F.crt ] && rm root_X0F.crt
@@ -19,3 +25,8 @@ for CRTFILE in *.crt; do
     RC=$?
     [ $RC -ne 0 ] && echo "error $0:$LINENO: $CRTFILE was _not_ found in $CACERTSFILE"
 done
+
+
+# Test cases:
+# wget https://www.cacert.org/certs/root_X0F.crt
+curl https://www.cacert.org/certs/root_X0F.crt
